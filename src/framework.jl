@@ -207,8 +207,8 @@ simdata[:a]
 
 This example returns a `GridData` object for the `:a` grid, which is `<: AbstractAray`.
 """
-function step!(sd::SimData)
-    _updatetime(sd, currentframe(sd) + 1) |> _proc_setup |> sd -> _step!(sd, rules(simdata))
+function step!(simdata::SimData)
+    _updatetime(simdata, currentframe(simdata) + 1) |> _proc_setup |> simdata -> _step!(simdata, rules(simdata))
 end
 
 # Allows different processors to modify the simdata object
